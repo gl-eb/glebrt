@@ -11,10 +11,20 @@ Authors@R: c(
         comment = c(ORCID = "0000-0002-7734-3824")
     )
   )
-Description: glebrt contains a collection of functions that I commonly use in my R projects
+Description: glebrt contains a collection of functions that I commonly use in my R projects.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/gl-eb/glebrt
 BugReports: https://github.com/gl-eb/glebrt/issues
 RoxygenNote: 7.3.2
+Imports:
+    cli,
+    curl,
+    ggplot2,
+    rlang,
+    showtext,
+    stringr,
+    sysfonts
+Remotes:
+    tidyverse/ggplot2
