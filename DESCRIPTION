@@ -26,5 +26,3 @@ Imports:
     showtext,
     stringr,
     sysfonts
-Remotes:
-    tidyverse/ggplot2
