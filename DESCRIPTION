@@ -22,7 +22,9 @@ Imports:
     cli,
     curl,
     ggplot2,
+    purrr,
     rlang,
+    scales,
     showtext,
     stringr,
     sysfonts
