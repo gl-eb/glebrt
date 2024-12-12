@@ -47,10 +47,10 @@ breaks_limits <- function(x, n = 5, ...) {
       breaks[n] <- max
     }
   } else if (breaks[n] < max) {
-    if (max - breaks[n-1] <= 0.5 * interval) {
+    if (max - breaks[n] <= 0.5 * interval) {
       breaks[n] <- max
     } else {
-      breaks <- c(breaks[1:n-2], max, breaks[n])
+      breaks <- c(breaks, max)
     }
   }
 
