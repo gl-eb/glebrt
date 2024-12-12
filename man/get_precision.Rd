@@ -13,6 +13,6 @@ get_precision(x)
 Get the numeric precision of numbers (i.e. the number of significant digits)
 }
 \examples{
-x <- c(0.001, 0.23, 0.170)
+x <- c(1, 0.4, 0.001, 0.23, 0.170)
 get_precision(x)
 }

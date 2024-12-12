@@ -1,3 +1,7 @@
+# glebrt 0.2.1
+
+- Fix `get_precision()` behaviour if input contains integers
+
 # glebrt 0.2.0
 
 - Add `breaks_limits()` for axes where explicitely labelling the limits is useful
