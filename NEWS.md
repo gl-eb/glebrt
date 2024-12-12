@@ -2,6 +2,7 @@
 
 - Fix `get_precision()` behaviour if input contains integers
 - Fix `breaks_limits()` behaviour when maximum value is larger than the highest break value
+- Fix `breaks_limits()` example
 
 # glebrt 0.2.0
 

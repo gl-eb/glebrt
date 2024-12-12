@@ -18,6 +18,6 @@ Return a vector of breaks for a numeric axis.
 Based on `scales::breaks_extended()`, but will include the (approximate) axis limits as breaks
 }
 \examples{
-x <- c(0.001, 0.23, 0.170)
-get_precision(x)
+x <- seq(1, 21)
+breaks_limits(x)
 }

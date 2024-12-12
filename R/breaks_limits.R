@@ -8,8 +8,8 @@
 #' @param ... Other arguments passed on to `labeling::extended()`
 #' @export
 #' @examples
-#' x <- c(0.001, 0.23, 0.170)
-#' get_precision(x)
+#' x <- seq(1, 21)
+#' breaks_limits(x)
 
 breaks_limits <- function(x, n = 5, ...) {
   # get breaks as computed by labeling::extended()
