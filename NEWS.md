@@ -1,3 +1,5 @@
+# glebrt 0.3.0
+
 # glebrt 0.2.1
 
 - Fix `get_precision()` behaviour if input contains integers
