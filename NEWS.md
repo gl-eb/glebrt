@@ -3,6 +3,7 @@
 - Add functions for setting classes
   - `set_class()`: A pipeable version of `class(x) <-`
   - `deframe_with_class()`: First calls `tibble::deframe()` on a data.frame, then calls `set_class()` on each element of the resulting vector
+- Add `enumerate()` which returns the number of unique values found in a column of a data.frame
 
 # glebrt 0.2.1
 

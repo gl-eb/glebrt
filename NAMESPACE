@@ -3,6 +3,7 @@
 export(breaks_limits)
 export(ceiling_precision)
 export(deframe_with_class)
+export(enumerate)
 export(floor_precision)
 export(get_greys)
 export(get_precision)
