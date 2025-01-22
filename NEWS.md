@@ -1,5 +1,8 @@
 # glebrt 0.3.0
 - Add `get_greys()` which returns up to five different shades of grey
+- Add functions for setting classes
+  - `set_class()`: A pipeable version of `class(x) <-`
+  - `deframe_with_class()`: First calls `tibble::deframe()` on a data.frame, then calls `set_class()` on each element of the resulting vector
 
 # glebrt 0.2.1
 

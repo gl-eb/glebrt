@@ -2,9 +2,11 @@
 
 export(breaks_limits)
 export(ceiling_precision)
+export(deframe_with_class)
 export(floor_precision)
 export(get_greys)
 export(get_precision)
+export(set_class)
 export(set_ggplot_theme)
 import(rlang)
 importFrom(ggplot2,theme_light)
