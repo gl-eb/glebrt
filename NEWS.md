@@ -1,3 +1,7 @@
+# glebrt (development version)
+
+- Refactor `breaks_limits()`
+
 # glebrt 0.4.0
 
 - Simplify `breaks_limits()` and allow more control over replacement of computed breaks

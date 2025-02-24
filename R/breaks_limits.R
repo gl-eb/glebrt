@@ -36,8 +36,9 @@ breaks_limits <- function(x, n = 5, r = 1, ...) {
   max <- max(x, na.rm = TRUE) |> ceiling_precision(precision = precision)
 
   # round min and max to the closest (r * interval)
-  min_round <- round(min / (interval * r)) * (interval * r)
-  max_round <- round(max / (interval * r)) * (interval * r)
+  interval_minor <- interval * r
+  min_round <- round(min / interval_minor) * interval_minor
+  max_round <- round(max / interval_minor) * interval_minor
 
   # add rounded limits to breaks, then clean breaks up
   breaks <- c(min_round, breaks, max_round) |> unique() |> sort()
