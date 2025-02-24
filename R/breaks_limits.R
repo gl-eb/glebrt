@@ -4,14 +4,25 @@
 #' Based on `scales::breaks_extended()`, but will include the (approximate) axis limits as breaks
 #'
 #' @param x (numeric) Data mapped onto numeric axis
-#' @param n (numeric) Desired number of breaks. Passed onto
+#' @param n (numeric) Desired number of breaks.
+#'   Passed onto `labeling::extended()`
+#' @param r (numeric) (0, 1] Factor determining how close axis limits are kept
+#'   as discrete breaks before replacing the closest break. A value of 1
+#'   results in the most aggressive replacement of precomputed breaks.
+#'
+#'   Specifically, the interval between breaks as returned by
+#'  `labeling::extended()` is multiplied by r to get the minor interval.
+#'   Then the limits of x are rounded to the nearest multiple of the minor
+#'   interval, the minor break. If not already a break, the minor break is
+#'   added to the vector of breaks. In a final step the minor break is replaced
+#'   with the actual limit
 #' @param ... Other arguments passed on to `labeling::extended()`
 #' @export
 #' @examples
 #' x <- seq(1, 21)
 #' breaks_limits(x)
 
-breaks_limits <- function(x, n = 5, ...) {
+breaks_limits <- function(x, n = 5, r = 1, ...) {
   # get breaks as computed by labeling::extended()
   breaks <- scales::breaks_extended(n = n, ...)(x)
   n <- length(breaks)
@@ -24,35 +35,16 @@ breaks_limits <- function(x, n = 5, ...) {
   min <- min(x, na.rm = TRUE) |> floor_precision(precision = precision)
   max <- max(x, na.rm = TRUE) |> ceiling_precision(precision = precision)
 
-  # determine whether min replaces highest breaks or is added
-  if (breaks[1] < min) {
-    if (min - breaks[1] >= 0.5 * interval) {
-      breaks <- c(min, breaks)
-    } else {
-      breaks[1] <- min
-    }
-  } else if (breaks[1] > min) {
-    if (breaks[1] - min <= 0.5 * interval) {
-      breaks[1] <- min
-    } else {
-      breaks <- c(breaks[1], min, breaks[3:n])
-    }
-  }
+  # round min and max to the closest (r * interval)
+  min_round <- round(min / (interval * r)) * (interval * r)
+  max_round <- round(max / (interval * r)) * (interval * r)
 
-  # determine whether min replaces highest breaks or is added
-  if (breaks[n] > max) {
-    if (breaks[n] - max >= 0.5 * interval) {
-      breaks <- c(breaks, max)
-    } else {
-      breaks[n] <- max
-    }
-  } else if (breaks[n] < max) {
-    if (max - breaks[n] <= 0.5 * interval) {
-      breaks[n] <- max
-    } else {
-      breaks <- c(breaks, max)
-    }
-  }
+  # add rounded limits to breaks, then clean breaks up
+  breaks <- c(min_round, breaks, max_round) |> unique() |> sort()
+
+  # replace rounded limits with actual limits
+  breaks[breaks == min_round] <- min
+  breaks[breaks == max_round] <- max
 
   return(breaks)
 }

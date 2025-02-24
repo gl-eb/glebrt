@@ -4,12 +4,24 @@
 \alias{breaks_limits}
 \title{Breaks Including Limits}
 \usage{
-breaks_limits(x, n = 5, ...)
+breaks_limits(x, n = 5, r = 1, ...)
 }
 \arguments{
 \item{x}{(numeric) Data mapped onto numeric axis}
 
-\item{n}{(numeric) Desired number of breaks. Passed onto}
+\item{n}{(numeric) Desired number of breaks.
+Passed onto `labeling::extended()`}
+
+\item{r}{(numeric) (0, 1] Factor determining how close axis limits are kept
+  as discrete breaks before replacing the closest break. A value of 1
+  results in the most aggressive replacement of precomputed breaks.
+
+  Specifically, the interval between breaks as returned by
+ `labeling::extended()` is multiplied by r to get the minor interval.
+  Then the limits of x are rounded to the nearest multiple of the minor
+  interval, the minor break. If not already a break, the minor break is
+  added to the vector of breaks. In a final step the minor break is replaced
+  with the actual limit}
 
 \item{...}{Other arguments passed on to `labeling::extended()`}
 }

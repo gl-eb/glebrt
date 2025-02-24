@@ -1,4 +1,5 @@
 # glebrt 0.4.0
+- Simplify `breaks_limits()` and allow more control over replacement of computed breaks
 
 # glebrt 0.3.0
 - Add `get_greys()` which returns up to five different shades of grey
