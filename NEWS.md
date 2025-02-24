@@ -1,3 +1,5 @@
+# glebrt 0.4.0
+
 # glebrt 0.3.0
 - Add `get_greys()` which returns up to five different shades of grey
 - Add functions for setting classes

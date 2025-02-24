@@ -1,7 +1,7 @@
 Package: glebrt
 Type: Package
 Title: Gleb Ebert's Commonly Used Functions
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: c(
     person(
         given = "Gleb G.",
