@@ -1,4 +1,4 @@
-# glebrt (development version)
+# glebrt 0.5.0
 
 - Refactor `breaks_limits()`
 - Ensure `ggplot2::geom_text()` and `ggplot2::geom_label()` use font set by `set_ggplot_theme()`
