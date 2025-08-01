@@ -40,8 +40,12 @@ set_ggplot_theme <- function(
   if (rlang::is_list(font_family)) {
     # ensure list has necessary elements
     font_family_elements <- c(
-      "font_name", "font_filename", "font_format",
-      "font_cut_roman", "font_cut_italic", "font_weight_bold"
+      "font_name",
+      "font_filename",
+      "font_format",
+      "font_cut_roman",
+      "font_cut_italic",
+      "font_weight_bold"
     )
     if (!all(names(font_family) %in% font_family_elements)) {
       cli::cli_abort(
@@ -77,7 +81,7 @@ set_ggplot_theme <- function(
     )
 
     # fall back to google fonts if font not found locally
-    if(inherits(t, "try-error") & curl::has_internet()) {
+    if (inherits(t, "try-error") & curl::has_internet()) {
       sysfonts::font_add_google(font_name, font_filename)
     }
 
@@ -101,6 +105,16 @@ set_ggplot_theme <- function(
   showtext::showtext_auto()
 
   do.call(theme, theme_args) |> eval() |> ggplot2::theme_set()
+
+  # also set font as default for geom_text and geom_label
+  ggplot2::update_geom_defaults(
+    geom = "text",
+    ggplot2::aes(family = font_name, face = font_cut_roman)
+  )
+  ggplot2::update_geom_defaults(
+    geom = "label",
+    ggplot2::aes(family = font_name, face = font_cut_roman)
+  )
 
   # make facet strips less noticeable
   ggplot2::theme_update(
