@@ -3,6 +3,7 @@
 - Add tests for logical vectors: `some()` and `same()`
 - Spell out numeric vectors using `spell_numbers()`
 - Check function arguments and set up testing
+- Use `stringi::stri_join()` instead of `paste()` and `paste0()`
 
 # glebrt 0.5.0
 

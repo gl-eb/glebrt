@@ -24,7 +24,7 @@ get_precision <- function(x) {
 
   # add decimal point to integers
   for (i in which(i_int %in% TRUE)) {
-    x[i] <- paste0(x[i], ".")
+    x[i] <- stringi::stri_join(x[i], ".")
   }
 
   # separate numbers into decimal digits

@@ -10,13 +10,13 @@
 #' paste_conjunction(c("a", "b", "c"))
 #' paste_conjunction(c("a", "b", "c"), conjunction = "as well as")
 paste_conjunction <- function(x, conjunction = "and") {
-  x[length(x)] <- paste0(conjunction, " ", x[length(x)])
-  c <- paste(x, collapse = ", ")
+  x[length(x)] <- stringi::stri_join(conjunction, " ", x[length(x)])
+  c <- stringi::stri_join(x, collapse = ", ")
   if (length(x) < 3) {
     c <- stringr::str_replace_all(
       c,
-      paste0(", ", conjunction),
-      paste0(" ", conjunction)
+      stringi::stri_join(", ", conjunction),
+      stringi::stri_join(" ", conjunction)
     )
   }
   return(c)
