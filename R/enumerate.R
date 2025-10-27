@@ -10,5 +10,20 @@
 #' dat <- tibble::tibble(var = c("a", "b", "c", "b"))
 #' enumerate(dat, var)
 enumerate <- function(dat, column) {
-  dat |> dplyr::pull({{ column }}) |> unique() |> length()
+  if (!is.data.frame(dat)) {
+    cli::cli_abort(c(
+      "!" = "{.arg dat} must be a data frame.",
+      "x" = "You supplied {.type dat}"
+    ))
+  }
+
+  column <- rlang::as_name(enquo(column))
+  if (!(column %in% colnames(dat))) {
+    cli::cli_abort(c(
+      "!" = "Can't extract columns that don't exist.",
+      "x" = "Column {.var {column}} doesn't exist."
+    ))
+  }
+
+  dat |> dplyr::pull({{ column }}) |> dplyr::n_distinct()
 }
