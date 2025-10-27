@@ -11,9 +11,27 @@
 #' dat <- tibble::tibble(var = c("a", "b", "c"), value = c(1, 2, 3))
 #' deframe_with_class(dat, class = "integer")
 deframe_with_class <- function(dat, class) {
+  if (!is.data.frame(dat)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg dat} must be a data frame.",
+        "x" = "You supplied {.type {dat}}"
+      )
+    )
+  } else if (ncol(dat) != 2) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg dat} must be a one- or two-column data frame.",
+        "x" = "You supplied {.val {ncol(dat)}} columns."
+      )
+    )
+  }
+
   vec <- dat |>
     tibble::deframe() |>
     purrr::map(\(x) set_class(x, class))
+
+  return(vec)
 }
 
 #' Set class
