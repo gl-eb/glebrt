@@ -1,9 +1,10 @@
 #' Collapse vector with conjunction
 #'
-#' Paste together vector with final conjunction, "and" for example, as well as an oxford comma
-#' @param x Object that both [paste0()] and [length()] can be called on
-#' @param conjunction (character) The conjunction to be used behind the oxford comma
-#' @returns String
+#' Paste together vector with final conjunction like "and", as well as an oxford comma
+#'
+#' @param x Usually a character vector, but can be any object that can be converted to a character vector and is subsettable
+#' @param conjunction Conjunction to be used behind the oxford comma. Usually a character vector vector of length one, but can be any object that can be converted to a character vector
+#' @returns Character vector of length 1
 #' @export
 #' @examples
 #' paste_conjunction(c("a", "b", "c"))

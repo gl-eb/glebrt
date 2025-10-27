@@ -7,15 +7,15 @@
 paste_conjunction(x, conjunction = "and")
 }
 \arguments{
-\item{x}{Object that both [paste0()] and [length()] can be called on}
+\item{x}{Usually a character vector, but can be any object that can be converted to a character vector and is subsettable}
 
-\item{conjunction}{(character) The conjunction to be used behind the oxford comma}
+\item{conjunction}{Conjunction to be used behind the oxford comma. Usually a character vector vector of length one, but can be any object that can be converted to a character vector}
 }
 \value{
-String
+Character vector of length 1
 }
 \description{
-Paste together vector with final conjunction, "and" for example, as well as an oxford comma
+Paste together vector with final conjunction like "and", as well as an oxford comma
 }
 \examples{
 paste_conjunction(c("a", "b", "c"))
