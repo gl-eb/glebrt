@@ -17,7 +17,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/gl-eb/glebrt
 BugReports: https://github.com/gl-eb/glebrt/issues
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports:
     cli,
     curl,
