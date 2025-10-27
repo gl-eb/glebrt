@@ -1,5 +1,7 @@
 # glebrt 0.6.0
 
+- Set up testing
+
 # glebrt 0.5.0
 
 - Refactor `breaks_limits()`
