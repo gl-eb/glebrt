@@ -1,6 +1,7 @@
 # glebrt 0.6.0
 
 - Add tests for logical vectors: `some()` and `same()`
+- Spell out numeric vectors using `spell_numbers()`
 - Check function arguments and set up testing
 
 # glebrt 0.5.0

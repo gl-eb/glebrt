@@ -27,9 +27,11 @@ Imports:
     rlang,
     scales,
     showtext,
+    stringi,
     stringr,
     sysfonts,
-    tibble
+    tibble,
+    xfun
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
