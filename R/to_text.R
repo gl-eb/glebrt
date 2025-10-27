@@ -69,3 +69,46 @@ spell_numbers <- function(x, conjunction = NULL) {
 
   return(x)
 }
+
+#' Spell out range
+#'
+#' Spell out the range of a numeric vector if any of the numbers are >10.
+#' `spell_range()` uses `xfun::numbers_to_words()` for number to text conversion.
+#'
+#' @param x Numeric vector to be converted to text
+#' @returns Character vector of length 1
+#' @export
+#' @examples
+#' spell_range(c(1, 2))
+#' spell_range(c(1, 2, 3))
+#' spell_range(c(1, 2, 3, 30))
+#' spell_range(c(20, 25, 30))
+spell_range <- function(x) {
+  if (!is.numeric(x)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg x} must be numeric.",
+        "x" = "You supplied {.type {x}}."
+      )
+    )
+  }
+  if (length(x) == 1) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg x} must be of length \u2265 2.",
+        "x" = "You supplied a vector of length {.val {1}}."
+      )
+    )
+  }
+
+  r <- range(x)
+  if (any(r > 10)) {
+    r <- stringi::stri_join(r, collapse = "\u2013")
+  } else {
+    r <- purrr::map(r, spell_numbers) |>
+      stringi::stri_join_list() |>
+      stringi::stri_join(collapse = " to ")
+  }
+
+  return(r)
+}

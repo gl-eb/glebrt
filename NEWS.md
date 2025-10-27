@@ -1,7 +1,7 @@
 # glebrt 0.6.0
 
 - Add tests for logical vectors: `some()` and `same()`
-- Spell out numeric vectors using `spell_numbers()`
+- Spell out numeric vectors using `spell_numbers()` and ranges using `spell_range()`
 - Check function arguments and set up testing
 - Use `stringi::stri_join()` instead of `paste()` and `paste0()`
 
