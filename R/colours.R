@@ -15,6 +15,13 @@ get_greys <- function(i = NULL) {
 
   if (is.null(i)) {
     return(greys)
+  } else if (!is.numeric(i)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg i} must be numeric.",
+        "x" = "You supplied {.type {i}}"
+      )
+    )
   } else {
     return(greys[i])
   }
