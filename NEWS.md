@@ -1,3 +1,5 @@
+# glebrt 0.6.0
+
 # glebrt 0.5.0
 
 - Refactor `breaks_limits()`
