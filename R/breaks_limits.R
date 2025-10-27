@@ -23,6 +23,38 @@
 #' breaks_limits(x)
 
 breaks_limits <- function(x, n = 5, r = 1, ...) {
+  if (!is.numeric(x)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg x} must be numeric.",
+        "x" = "You supplied {.type {x}}"
+      )
+    )
+  }
+  if (!is.numeric(n)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg n} must be numeric.",
+        "x" = "You supplied {.type {n}}"
+      )
+    )
+  }
+  if (!is.numeric(r)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg r} must be numeric.",
+        "x" = "You supplied {.type {r}}"
+      )
+    )
+  } else if (!dplyr::between(r, 0, 1)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg r} must be between {.val {0}} and {.val {1}}",
+        "x" = "You supplied {.val {r}}"
+      )
+    )
+  }
+
   # get breaks as computed by labeling::extended()
   breaks <- scales::breaks_extended(n = n, ...)(x)
   n <- length(breaks)
