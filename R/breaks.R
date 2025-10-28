@@ -81,3 +81,55 @@ breaks_limits <- function(x, n = 5, r = 1, ...) {
 
   return(breaks)
 }
+
+#' Breaks at specified intervals
+#'
+#' Return a vector of breaks for a numeric axis.
+#' Based on `scales::breaks_extended()`, but will observe the specified interval
+#'
+#' @param x (numeric) Data mapped onto continuous axis
+#' @param i (numeric) Interval between breaks
+#' @param ... Other arguments passed on to `labeling::extended()`
+#' @export
+#' @examples
+#' x <- seq(1, 128)
+#' breaks_interval(x, i = 40)
+breaks_interval <- function(x, i = NULL, ...) {
+  if (!is.numeric(x)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg x} must be numeric.",
+        "x" = "You supplied {.type {x}}"
+      )
+    )
+  }
+  if (!is.numeric(i)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg i} must be numeric.",
+        "x" = "You supplied {.type {i}}"
+      )
+    )
+  }
+
+  # try getting the interval right by specifying the number of desired breaks
+  n <- round((max(x) - min(x)) / i) + 1
+  breaks <- scales::breaks_extended(n = n, ...)(x)
+  interval <- breaks[2] - breaks[1]
+
+  # if breaks do not have requested interval, try again by adjusting `n`
+  if (interval > i) {
+    breaks <- scales::breaks_extended(n = n - 1, ...)(x)
+    interval <- breaks[2] - breaks[1]
+  } else if (interval < i) {
+    breaks <- scales::breaks_extended(n = n + 1, ...)(x)
+    interval <- breaks[2] - breaks[1]
+  }
+
+  # use alternative method if interval is still wrong
+  if (interval != i) {
+    breaks <- seq(from = min(breaks), by = i, length.out = n)
+  }
+
+  return(breaks)
+}

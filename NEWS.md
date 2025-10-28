@@ -3,6 +3,7 @@
 - Add tests for logical vectors: `some()` and `same()`
 - Spell out numeric vectors using `spell_numbers()` and ranges using `spell_range()`
 - Deselect columns filled entirely with `NA` using `deselect_na()`
+- Get axis breaks with a specified interval using `breaks_interval()`
 - Restore legend customisation of a ggplot2 object to defaults using `unset_legend()`
 - Check function arguments and set up testing
 - Use `stringi::stri_join()` instead of `paste()` and `paste0()`
