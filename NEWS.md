@@ -1,3 +1,5 @@
+# glebrt 0.6.1
+
 # glebrt 0.6.0
 
 - Add tests for logical vectors: `some()` and `same()`
