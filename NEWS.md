@@ -1,5 +1,8 @@
 # glebrt 0.8.0
 
+- Refactor `set_ggplot_theme()`
+  - Use `systemfonts` instead of `sysfonts` and `showtext`
+  - Only take a font family name as argument. Non-standard weights have to be declared using `systemfonts::register_variant()`
 - Improve testing
 
 # glebrt 0.7.0

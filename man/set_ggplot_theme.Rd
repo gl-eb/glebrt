@@ -7,36 +7,29 @@
 set_ggplot_theme(
   theme = "theme_light",
   base_size = 15,
-  font_family = list(font_name = "Fira Sans", font_filename = "FiraSans", font_format =
-    "otf", font_cut_roman = "Regular", font_cut_italic = "Italic", font_weight_bold =
-    "Medium")
+  font_family = "Fira Sans"
 )
 }
 \arguments{
-\item{theme}{(character) The name of a ggplot complete theme (default: "theme_light")}
+\item{theme}{(character) The name of a ggplot2 complete theme (default: "theme_light")}
 
 \item{base_size}{(numeric) Base font size argument (base_size) passed onto ggplot theme}
 
-\item{font_family}{(character or list) Font family name or font family list. See examples}
+\item{font_family}{(character) Font family name}
 }
 \description{
-This function sets a global ggplot2 theme using ggplot2::theme_set()
+This function sets a global ggplot2 theme using ggplot2::theme_set().
+In case you want to use non-default wont weights, you need to register them
+as a font variant first (see `systemfonts::register_variant()`).
 }
 \examples{
+\dontrun{
 set_ggplot_theme()
 set_ggplot_theme(theme = "theme_light")
-\dontrun{
 set_ggplot_theme(
   theme = "theme_light",
   base_size = 15,
-  font_family = list(
-    font_name = "Fira Sans",
-    font_filename = "FiraSans",
-    font_format = "otf",
-    font_cut_roman = "Regular",
-    font_cut_italic = "Italic",
-    font_weight_bold = "Medium"
-  )
+  font_family = "Fira Sans",
 )
 }
 }

@@ -20,16 +20,14 @@ BugReports: https://github.com/gl-eb/glebrt/issues
 RoxygenNote: 7.3.3
 Imports:
     cli,
-    curl,
     dplyr,
     ggplot2,
     purrr,
     rlang,
     scales,
-    showtext,
     stringi,
     stringr,
-    sysfonts,
+    systemfonts,
     tibble,
     tidyselect,
     xfun
