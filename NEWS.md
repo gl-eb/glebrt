@@ -1,5 +1,7 @@
 # glebrt 0.6.1
 
+- Renamed `some()` to `some_of()` to resolve conflict with `purrr::some()`
+
 # glebrt 0.6.0
 
 - Add tests for logical vectors: `some()` and `same()`
