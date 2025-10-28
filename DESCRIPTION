@@ -34,6 +34,8 @@ Imports:
     tidyselect,
     xfun
 Suggests:
+    svglite,
     testthat (>= 3.0.0),
-    vdiffr
+    vdiffr,
+    withr
 Config/testthat/edition: 3

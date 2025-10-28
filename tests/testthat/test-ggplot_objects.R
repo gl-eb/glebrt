@@ -14,10 +14,13 @@ plot <- dat |>
   )
 
 test_that("Unsetting legend modification works", {
-  vdiffr::expect_doppelganger("Plot with custom legend", plot)
   vdiffr::expect_doppelganger(
-    "Plot with legend reverted to defaults",
-    unset_legend(plot)
+    title = "Plot with custom legend",
+    fig = plot
+  )
+  vdiffr::expect_doppelganger(
+    title = "Plot with legend reverted to defaults",
+    fig = unset_legend(plot)
   )
 })
 
