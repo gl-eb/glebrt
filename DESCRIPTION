@@ -31,6 +31,7 @@ Imports:
     stringr,
     sysfonts,
     tibble,
+    tidyselect,
     xfun
 Suggests: 
     testthat (>= 3.0.0)
