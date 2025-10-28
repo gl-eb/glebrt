@@ -38,8 +38,8 @@ get_precision <- function(x) {
 
 #' Rounding of Numbers With Precision
 #'
-#' `ceiling_precision` rounds up the nearest number of specified decimal places.
-#' `floor_precision` rounds down the nearest number of specified decimal places.
+#' `ceiling_precision()` rounds up to the nearest number of specified decimal places.
+#' `floor_precision()` rounds down to the nearest number of specified decimal places.
 #'
 #' @param x (numeric) Vector to round
 #' @param precision (numeric) Integer indicating the precision to which to round to. Non-integer numerics will be passed to `as.integer()`.

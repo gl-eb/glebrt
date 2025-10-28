@@ -7,7 +7,7 @@
 breaks_limits(x, n = 5, r = 1, ...)
 }
 \arguments{
-\item{x}{(numeric) Data mapped onto numeric axis}
+\item{x}{(numeric) Data mapped onto continuous axis}
 
 \item{n}{(numeric) Desired number of breaks.
 Passed onto `labeling::extended()`}

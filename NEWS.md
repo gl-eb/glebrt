@@ -5,6 +5,7 @@
 - Deselect columns filled entirely with `NA` using `deselect_na()`
 - Check function arguments and set up testing
 - Use `stringi::stri_join()` instead of `paste()` and `paste0()`
+- Improve function documentation
 
 # glebrt 0.5.0
 

@@ -3,7 +3,7 @@
 #' Return a vector of breaks for a numeric axis.
 #' Based on `scales::breaks_extended()`, but will include the (approximate) axis limits as breaks
 #'
-#' @param x (numeric) Data mapped onto numeric axis
+#' @param x (numeric) Data mapped onto continuous axis
 #' @param n (numeric) Desired number of breaks.
 #'   Passed onto `labeling::extended()`
 #' @param r (numeric) (0, 1] Factor determining how close axis limits are kept

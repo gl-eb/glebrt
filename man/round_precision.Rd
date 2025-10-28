@@ -18,8 +18,8 @@ floor_precision(x, precision = 2L)
 A numeric vector of the same length as `x`
 }
 \description{
-`ceiling_precision` rounds up the nearest number of specified decimal places.
-`floor_precision` rounds down the nearest number of specified decimal places.
+`ceiling_precision()` rounds up to the nearest number of specified decimal places.
+`floor_precision()` rounds down to the nearest number of specified decimal places.
 }
 \examples{
 x <- c(0.001, 0.23, 0.170)
