@@ -1,4 +1,4 @@
-# glebrt 0.6.1
+# glebrt 0.7.0
 
 - Add `breaks_integer()`
 - Renamed `some()` to `some_of()` to resolve conflict with `purrr::some()`
