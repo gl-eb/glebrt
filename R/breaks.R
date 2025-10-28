@@ -133,3 +133,40 @@ breaks_interval <- function(x, i = NULL, ...) {
 
   return(breaks)
 }
+
+#' Integer breaks for continuous axes
+#'
+#' Return a vector of integer breaks for a numeric axis.
+#' This can cause breaks to have irregular intervals.
+#'
+#' @param x (numeric) Data mapped onto continuous axis
+#' @param n (numeric) Desired number of breaks. Passed onto `pretty()`
+#' @param ... Other arguments passed on to `pretty()`
+#' @export
+#' @examples
+#' x <- seq(from = 0.5, to = 3.8, by = 0.15)
+#' breaks_integer(x)
+breaks_integer <- function(x, n = 5, ...) {
+  if (!is.numeric(x)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg x} must be numeric.",
+        "x" = "You supplied {.type {x}}"
+      )
+    )
+  }
+  if (!is.numeric(n)) {
+    cli::cli_abort(
+      c(
+        "!" = "{.arg n} must be numeric.",
+        "x" = "You supplied {.type {n}}"
+      )
+    )
+  }
+
+  breaks <- pretty(x, n = n) |>
+    floor() |>
+    unique() |>
+    sort()
+  return(breaks)
+}

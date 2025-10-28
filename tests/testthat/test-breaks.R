@@ -1,4 +1,5 @@
 x <- seq(1, 21)
+y <- seq(from = 0.5, to = 3.8, by = 0.15)
 
 test_that("Breaks are computed correctly", {
   expect_equal(breaks_limits(x), c(1, 5, 10, 15, 21))
@@ -7,6 +8,8 @@ test_that("Breaks are computed correctly", {
   expect_equal(breaks_interval(x, i = 10), c(0, 10, 20))
   expect_equal(breaks_interval(x = x, i = 5), c(0, 5, 10, 15, 20))
   expect_equal(breaks_interval(x = x, i = 3), c(0, 3, 6, 9, 12, 15, 18, 21))
+  expect_equal(breaks_integer(x = y), c(0, 1, 2, 3, 4))
+  expect_equal(breaks_integer(x = y, n = 2), c(0, 2, 4))
 })
 
 test_that("Non-numeric arguments are rejected", {
@@ -33,5 +36,13 @@ test_that("Non-numeric arguments are rejected", {
   expect_error(
     breaks_interval(x = x, i = "5"),
     regexp = "`i` must be numeric"
+  )
+  expect_error(
+    breaks_integer(x = c("a", "b", "c")),
+    regexp = "`x` must be numeric"
+  )
+  expect_error(
+    breaks_integer(x = x, n = "5"),
+    regexp = "`n` must be numeric"
   )
 })

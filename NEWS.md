@@ -1,5 +1,6 @@
 # glebrt 0.6.1
 
+- Add `breaks_integer()`
 - Renamed `some()` to `some_of()` to resolve conflict with `purrr::some()`
 - Fix how `spell_range()` deals with the spelling threshold (the number 10)
 
