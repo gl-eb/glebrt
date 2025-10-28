@@ -1,6 +1,6 @@
 #' Set a global ggplot2 theme
 #'
-#' This function sets a global ggplot2 theme using ggplot2::theme_set().
+#' This function sets a global ggplot2 theme using ggplot2::set_theme().
 #' In case you want to use non-default wont weights, you need to register them
 #' as a font variant first (see `systemfonts::register_variant()`).
 #'
@@ -77,10 +77,10 @@ set_ggplot_theme <- function(
     base_size = base_size,
     base_family = font_family
   )
-  do.call(theme, theme_args) |> eval() |> ggplot2::theme_set()
+  do.call(theme, theme_args) |> eval() |> ggplot2::set_theme()
 
   # make facet strips less noticeable
-  ggplot2::theme_update(
+  ggplot2::update_theme(
     strip.background = ggplot2::element_rect(color = "grey70", fill = "white"),
     strip.text = ggplot2::element_text(color = "black")
   )

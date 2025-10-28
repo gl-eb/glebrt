@@ -18,7 +18,7 @@ set_ggplot_theme(
 \item{font_family}{(character) Font family name}
 }
 \description{
-This function sets a global ggplot2 theme using ggplot2::theme_set().
+This function sets a global ggplot2 theme using ggplot2::set_theme().
 In case you want to use non-default wont weights, you need to register them
 as a font variant first (see `systemfonts::register_variant()`).
 }
