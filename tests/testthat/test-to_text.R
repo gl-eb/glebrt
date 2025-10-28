@@ -36,6 +36,10 @@ test_that("Spelling out ranges works", {
   expect_equal(spell_range(c(1, 2)), "one to two")
   expect_equal(spell_range(x_num), "one to three")
   expect_equal(
+    spell_range(c(8, 9, 10)),
+    stringi::stri_join("8", "\u2013", "10")
+  )
+  expect_equal(
     spell_range(c(1, 2, 3, 30)),
     stringi::stri_join("1", "\u2013", "30")
   )

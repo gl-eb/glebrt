@@ -102,7 +102,7 @@ spell_range <- function(x) {
   }
 
   r <- range(x)
-  if (any(r > 10)) {
+  if (any(r >= 10)) {
     r <- stringi::stri_join(r, collapse = "\u2013")
   } else {
     r <- purrr::map(r, spell_numbers) |>
