@@ -21,7 +21,7 @@ RoxygenNote: 7.3.3
 Imports:
     cli,
     dplyr,
-    ggplot2,
+    ggplot2 (>= 4.0.0),
     purrr,
     rlang,
     scales,

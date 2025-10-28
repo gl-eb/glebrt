@@ -1,5 +1,8 @@
 # glebrt (development version)
 
+- Set minimum version number of ggplot2 to 4.0.0
+  - Update how `unset_legend()` works
+
 # glebrt 0.8.0
 
 - Refactor `set_ggplot_theme()`

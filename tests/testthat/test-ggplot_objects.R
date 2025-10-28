@@ -27,6 +27,6 @@ test_that("Unsetting legend modification works", {
 test_that("Non-ggplot objects are rejected", {
   expect_error(
     unset_legend(ggplot2::ggplot_build(plot)),
-    regexp = "You supplied a <ggplot_built>"
+    regexp = "`gg` must be a ggplot object"
   )
 })

@@ -36,10 +36,14 @@ unset_legend <- function(gg) {
     ))
   }
 
-  gg$theme <- gg$theme[
-    !stringi::stri_detect(str = names(gg$theme), regex = "legend")
-  ]
-  gg$guides <- ggplot2::ggplot()$guides
+  # default theme element and guide values
+  theme_defaults <- ggplot2::get_theme()[stringi::stri_detect(
+    str = names(ggplot2::get_theme()),
+    regex = "legend"
+  )]
+
+  gg <- gg + ggplot2::theme(!!!theme_defaults)
+  gg@guides <- ggplot2::ggplot()@guides
 
   return(gg)
 }
