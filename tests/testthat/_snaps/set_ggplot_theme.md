@@ -67,7 +67,7 @@
        $ geom                            : <ggplot2::element_geom>
         ..@ ink        : chr "black"
         ..@ paper      : chr "white"
-        ..@ accent     : chr "#3366FF"
+        ..@ accent     : chr "#C83F4C"
         ..@ linewidth  : num 0.682
         ..@ borderwidth: num 0.682
         ..@ linetype   : int 1

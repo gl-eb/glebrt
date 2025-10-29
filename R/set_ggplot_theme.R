@@ -4,10 +4,16 @@
 #' In case you want to use non-default wont weights, you need to register them
 #' as a font variant first (see `systemfonts::register_variant()`).
 #'
+#' Arguments are eventually passed on to the theme function as defined
+#' in `theme`. For font selection to work, you need to use a graphics device
+#' with builtin `systemfonts` support like `ragg` or `svglite`.
+#'
 #' @param theme (character) The name of a ggplot2 complete theme (default: "theme_light")
 #' @param base_size (numeric) Base font size argument (base_size) passed onto ggplot theme
 #' @param font_family (character) Font family name
+#' @param ink,paper,accent (character) colour for foreground, background, and accented elements respectively.
 #' @import ggplot2
+#' @seealso [ggplot2::ggtheme], [systemfonts::register_variant()]
 #' @export
 #' @examples
 #' \dontrun{
@@ -23,7 +29,10 @@
 set_ggplot_theme <- function(
   theme = "theme_light",
   base_size = 15,
-  font_family = "Fira Sans"
+  font_family = "Fira Sans",
+  ink = "black",
+  paper = "white",
+  accent = "#C83F4C"
 ) {
   if (!exists(theme)) {
     cli::cli_abort(
@@ -75,7 +84,10 @@ set_ggplot_theme <- function(
   # set theme as requested
   theme_args <- list(
     base_size = base_size,
-    base_family = font_family
+    base_family = font_family,
+    ink = ink,
+    paper = paper,
+    accent = accent
   )
   do.call(theme, theme_args) |> eval() |> ggplot2::set_theme()
 

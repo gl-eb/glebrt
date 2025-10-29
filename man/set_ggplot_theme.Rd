@@ -7,7 +7,10 @@
 set_ggplot_theme(
   theme = "theme_light",
   base_size = 15,
-  font_family = "Fira Sans"
+  font_family = "Fira Sans",
+  ink = "black",
+  paper = "white",
+  accent = "#C83F4C"
 )
 }
 \arguments{
@@ -16,11 +19,18 @@ set_ggplot_theme(
 \item{base_size}{(numeric) Base font size argument (base_size) passed onto ggplot theme}
 
 \item{font_family}{(character) Font family name}
+
+\item{ink, paper, accent}{(character) colour for foreground, background, and accented elements respectively.}
 }
 \description{
 This function sets a global ggplot2 theme using ggplot2::set_theme().
 In case you want to use non-default wont weights, you need to register them
 as a font variant first (see `systemfonts::register_variant()`).
+}
+\details{
+Arguments are eventually passed on to the theme function as defined
+in `theme`. For font selection to work, you need to use a graphics device
+with builtin `systemfonts` support like `ragg` or `svglite`.
 }
 \examples{
 \dontrun{
@@ -32,4 +42,7 @@ set_ggplot_theme(
   font_family = "Fira Sans",
 )
 }
+}
+\seealso{
+[ggplot2::ggtheme], [systemfonts::register_variant()]
 }
