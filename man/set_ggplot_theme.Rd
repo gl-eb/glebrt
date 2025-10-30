@@ -10,7 +10,10 @@ set_ggplot_theme(
   font_family = "Fira Sans",
   ink = "black",
   paper = "white",
-  accent = "#C83F4C"
+  accent = "#C83F4C",
+  colour_continuous = scales::pal_viridis(option = "inferno", begin = 0.1, end = 0.85),
+  colour_discrete = scales::manual_pal(grDevices::palette.colors(palette = "Okabe-Ito"),
+    type = "colour")
 )
 }
 \arguments{
@@ -21,6 +24,10 @@ set_ggplot_theme(
 \item{font_family}{(character) Font family name}
 
 \item{ink, paper, accent}{(character) colour for foreground, background, and accented elements respectively.}
+
+\item{colour_continuous}{(character, function) Colour palette, either as character vector or a palette function. A subset of the "Inferno" palette is the default.}
+
+\item{colour_discrete}{(character, function) Colour palette, either as character vector or a palette function. The "Okabe-Ito" palette is the default.}
 }
 \description{
 This function sets a global ggplot2 theme using ggplot2::set_theme().

@@ -3,7 +3,7 @@ dat <- tibble::tibble(
   val = rev(seq(1:10))
 )
 plot_label <- dat |>
-  ggplot2::ggplot(ggplot2::aes(x = var, y = val, label = val)) +
+  ggplot2::ggplot(ggplot2::aes(x = var, y = val, label = val, colour = val)) +
   ggplot2::geom_point() +
   ggplot2::geom_label()
 

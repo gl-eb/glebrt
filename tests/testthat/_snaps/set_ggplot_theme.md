@@ -3,7 +3,7 @@
     Code
       ggplot2::theme_get()
     Output
-      <theme> List of 144
+      <theme> List of 146
        $ line                            : <ggplot2::element_line>
         ..@ colour       : chr "black"
         ..@ linewidth    : num 0.682

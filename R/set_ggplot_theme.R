@@ -12,6 +12,8 @@
 #' @param base_size (numeric) Base font size argument (base_size) passed onto ggplot theme
 #' @param font_family (character) Font family name
 #' @param ink,paper,accent (character) colour for foreground, background, and accented elements respectively.
+#' @param colour_continuous (character, function) Colour palette, either as character vector or a palette function. A subset of the "Inferno" palette is the default.
+#' @param colour_discrete (character, function) Colour palette, either as character vector or a palette function. The "Okabe-Ito" palette is the default.
 #' @import ggplot2
 #' @seealso [ggplot2::ggtheme], [systemfonts::register_variant()]
 #' @export
@@ -32,7 +34,16 @@ set_ggplot_theme <- function(
   font_family = "Fira Sans",
   ink = "black",
   paper = "white",
-  accent = "#C83F4C"
+  accent = "#C83F4C",
+  colour_continuous = scales::pal_viridis(
+    option = "inferno",
+    begin = 0.10,
+    end = 0.85
+  ),
+  colour_discrete = scales::manual_pal(
+    grDevices::palette.colors(palette = "Okabe-Ito"),
+    type = "colour"
+  )
 ) {
   if (!exists(theme)) {
     cli::cli_abort(
@@ -91,8 +102,12 @@ set_ggplot_theme <- function(
   )
   do.call(theme, theme_args) |> eval() |> ggplot2::set_theme()
 
-  # make facet strips less noticeable
+  # modify theme further
+  # - set default palettes
+  # - make facet strips less noticeable
   ggplot2::update_theme(
+    palette.colour.continuous = colour_continuous,
+    palette.colour.discrete = colour_discrete,
     strip.background = ggplot2::element_rect(color = "grey70", fill = "white"),
     strip.text = ggplot2::element_text(color = "black")
   )
